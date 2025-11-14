@@ -8,9 +8,11 @@ This repository contains my Arch Linux Hyprland rice configuration as well as sc
 
 | Terminals | Cheat sheet |
 |------------------|--------------|
-| ![Terminals](images/terminals.png) | ![Cheat sheet](images/cheatsheet.png) |
+| ![Terminals](images/terminals.png) | ![Cheatsheet](images/cheatsheet.png) |
 | **Visual Studio Code** | **Browser (Firefox)** |
-| ![Visual Studio Code](images/vscode.png) | ![Firefox](images/firefox.png) |
+| ![VSCode](images/vscode.png) | ![Firefox](images/firefox.png) |
+| **Dolphin (QT)** | **GIMP (GTK)** |
+| ![Dolphin](images/dolphin.png) | ![Gimp](images/gimp.png) |
 
 ### Theme swapping
 
