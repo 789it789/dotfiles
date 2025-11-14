@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export LC_ALL="en_US.UTF-8"
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/opt/nvim/"
@@ -24,7 +17,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -61,7 +54,7 @@ bindkey '^[[1;5D' backward-word                   # ctrl + <-
 bindkey '^[[5~' beginning-of-buffer-or-history    # page up
 bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # home
-bindkey '^[[F' end-of-line                        # end
+bindkey '^[[E' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
 # enable completion features
@@ -276,7 +269,6 @@ fi
 
 # Custom aliases
 alias imlazy='sudo pacman -Syu && yay -Sy && sudo update-grub'
-alias imissarch='sudo apt-get update && sudo apt-get upgrade'
 
 # Some more ls aliases
 alias ll='ls -l'
@@ -297,8 +289,6 @@ alias dt="cd ~/Desktop"
 alias g="git"
 alias reload="source ~/.zshrc"
 
-bindkey '^E' autosuggest-accept
-
 # Download Znap, if it's not there yet.
 [[ -r ~/zshRepos/znap/znap.zsh ]] ||
     git clone --depth 1 -- \
@@ -306,6 +296,8 @@ bindkey '^E' autosuggest-accept
 source ~/zshRepos/znap/znap.zsh  # Start Znap
 znap source marlonrichert/zsh-autocomplete # Znap Autocomplete
 znap source zsh-users/zsh-autosuggestions # Autosuggestions
+bindkey '^F' autosuggest-accept
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
 # enable command-not-found if installed (pkgfile on Arch)
 if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
@@ -317,24 +309,24 @@ if command -v thefuck &> /dev/null; then
     eval $(thefuck --alias)
 fi
 
-# ============================================
-# Python Environment Management
-# ============================================
-# Source Python environment tools
+# py env tools
 if [[ -f ~/Scripts/py_env_tools.sh ]]; then
     source ~/Scripts/py_env_tools.sh
 fi
 
 export PATH="$HOME/bin:$PATH"
 
-# Show fastfetch in Kitty terminals
+# show fastfetch in Kitty terminals
 if [[ "$TERM" == "xterm-kitty" ]]; then
-    figlet "Hello! $USER"
+    echo -e "\e[34m$(figlet -f ansi-shadow "Hi! $USER")\e[0m"
     fastfetch
 fi
 
 # Kitty icat alias for displaying images
 alias icat="kitty +kitten icat"
+
+# Installer alias for in-terminal installation
+alias installer="~/Scripts/packages.sh"
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -344,3 +336,8 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # System Backup
 alias backup="sudo /usr/local/bin/system-backup.sh"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/kuroma/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/kuroma/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]

@@ -104,7 +104,7 @@ if [ -n "$selected_label" ]; then
         fi
     elif [ -n "$selected_ip" ]; then
         # Connect to selected exit node
-        tailscale set --exit-node="$selected_ip" 2>&1 > /dev/null
+        tailscale set --exit-node="$selected_ip" 2>&1 --exit-node-allow-lan-access=true > /dev/null
         if [ $? -eq 0 ]; then
             notify-send "Tailscale VPN" "Connected to: $selected_text"
         else

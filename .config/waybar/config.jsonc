@@ -16,32 +16,32 @@
     ],
 
     "modules-center": [
+        "mpris",
         "hyprland/workspaces"
     ],
 
     "modules-right": [
+        "custom/quick-actions",
         "custom/ime",
         "clock",
         "custom/weather",
-        "network#wifi",
         "pulseaudio",
-        "custom/quick-actions",
+        "network#wifi",
         "custom/power"
     ],
 
     // Left modules
     "custom/launcher": {
         "format": "󰣇",
-        "tooltip": false,
+        "tooltip-format": "Application launcher",
         "on-click": "rofi -show drun -theme ~/.config/rofi/grid.rasi"
     },
 
     "custom/wallpaper": {
         "format": "󰸉",
-        "tooltip": false,
+        "tooltip-format": "Select wallpaper",
         "on-click": "~/.config/waybar/scripts/wallpaper-selector.sh"
     },
-
 
     "cpu": {
         "format": "󰻠 {usage}%",
@@ -82,6 +82,19 @@
     },
 
     // Center modules
+    "mpris": {
+        "format": "{player_icon}",
+        "format-paused": "{status_icon}",
+        "player-icons": {
+            "default": "",
+            "mpv": ""
+        },
+        "status-icons": {
+            "paused": ""
+        },
+        "tooltip-format": " {player}\n {artist}\n {album}-{title}\n [{length}]"
+    },
+    
     "hyprland/workspaces": {
         "format": "{id}",
         "on-click": "activate",
@@ -104,7 +117,7 @@
     },
 
     "clock": {
-        "format": "{:%y/%m/%d - %H:%M:%S}",
+        "format": "{:%Y/%m/%d  %H:%M:%S}",
         "tooltip-format": "<big>Calendar</big>\n<tt>{calendar}</tt>",
         "interval": 1
     },

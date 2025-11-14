@@ -1,9 +1,9 @@
 # GIMP user context
 
-(tool "gimp-crop-tool")
+(tool "gimp-levels-tool")
 (paint-info "gimp-paintbrush")
 (opacity 0.68000000000000005)
-(brush "2. Hardness 050")
+(brush "Chalk 03")
 (dynamics "Pressure Size")
 (mybrush "100% Opaque")
 (pattern "Pine")

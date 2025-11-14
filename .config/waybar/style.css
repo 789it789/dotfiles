@@ -44,19 +44,6 @@ window#waybar {
     padding-right: 13px;
 }
 
-#custom-wallpaper {
-    background: @surface_container_high;
-    color: @secondary;
-    padding: 5px 12px;
-    margin: 5px 2px;
-    border-radius: 16px;
-    font-size: 16px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 9px;
-    padding-right: 12px;
-}
-
 #custom-code {
     background: @surface_container_high;
     color: @tertiary;
@@ -91,15 +78,15 @@ window#waybar {
 }
 
 #network {
-    color: @primary_fixed;
+    color: @secondary;
 }
 
 #custom-gpu {
-    color: @error;
+    color: @tertiary;
 }
 
 #disk {
-    color: @primary;
+    color: @secondary;
 }
 
 /* Center modules */
@@ -111,7 +98,7 @@ window#waybar {
 #workspaces button {
     background: @surface_container_high;
     color: @outline;
-    padding: 5px 10px;
+    padding: 5px 5px;
     margin: 0 3px;
     border-radius: 16px;
     border: none;
@@ -129,6 +116,7 @@ window#waybar {
 
 #workspaces button.active {
     background: @primary;
+    padding: 5px 15px;
     color: @on_primary;
     font-weight: 700;
 }
@@ -147,7 +135,6 @@ window#waybar {
 #custom-screenshot,
 #network.wifi,
 #pulseaudio,
-#custom-quick-actions,
 #custom-power {
     background: @surface_container_high;
     color: @on_surface;
@@ -166,32 +153,32 @@ window#waybar {
 }
 
 #clock {
-    color: @tertiary_fixed;
+    color: @tertiary;
     font-weight: 600;
 }
 
 #custom-weather {
-    color: @secondary_fixed;
-}
-
-#network.wifi {
-    color: @primary;
+    color: @secondary;
 }
 
 #pulseaudio {
     color: @tertiary;
 }
 
+#network.wifi {
+    color: @secondary;
+}
+
 #pulseaudio.muted {
-    color: @outline;
+    color: @tertiary;
 }
 
 #custom-quick-actions {
     color: @primary_fixed_dim;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom: 4px;
     padding-left: 9px;
-    padding-right: 12px;
+    padding-right: 13px;
 }
 
 #custom-power {
@@ -213,4 +200,26 @@ tooltip {
 tooltip label {
     color: @on_surface;
     padding: 5px;
+}
+
+#custom-quick-actions,
+#custom-wallpaper {
+    background: @primary;
+    color: @surface_container_high;
+    padding: 5px 12px;
+    margin: 5px 2px;
+    border-radius: 16px;
+    font-size: 16px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 9px;
+    padding-right: 12px;
+}
+
+#mpris {
+    background: @primary;
+    color: @surface_container_high;
+    padding: 5px 12px;
+    margin: 5px 2px;
+    border-radius: 16px;
 }

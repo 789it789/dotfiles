@@ -96,9 +96,6 @@ if [ -n "$selected" ]; then
             # Copy thumbnail to cache for hyprlock/SDDM
             cp "$thumbnail_path" "$HOME/.cache/last_wallpaper_static.jpg"
 
-            # Copy to SDDM theme directory (requires sudo)
-            sudo cp "$HOME/.cache/last_wallpaper_static.jpg" /usr/share/sddm/themes/sugar-dark/Background.jpg
-
             # Apply theme using the thumbnail
             matugen image "$thumbnail_path" &
 

@@ -32,7 +32,7 @@ mainbox {
 listview {
     background-color: transparent;
     columns: 3;
-    lines: 3;
+    lines: 4;
     spacing: 12px;
     scrollbar: false;
     fixed-height: true;

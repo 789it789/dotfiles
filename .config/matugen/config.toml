@@ -1,5 +1,5 @@
 [config.wallpaper]
-set = false
+set = true
 command = "swww"
 arguments = [
     "img",
@@ -13,7 +13,7 @@ arguments = [
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.config/hypr/components/colors.conf'
 post_hook = 'hyprctl reload'
 
 [templates.dunst]
@@ -95,6 +95,7 @@ output_path = '~/.mozilla/firefox/xvm2110c.default-release/chrome/config.css'
 [templates.nwg-lock]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/nwg-dock-hyprland/colors.css'
+post_hook = 'killall nwg-dock-hyprland; hyprctl dispatch exec "nwg-dock-hyprland -p bottom -a center -mb 5 -d"'
 
 [templates.nwg-drawer]
 input_path = '~/.config/matugen/templates/colors.css'
