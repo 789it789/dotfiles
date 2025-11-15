@@ -41,7 +41,7 @@ prompt {
 entry {
     background-color: transparent;
     text-color: @on-surface;
-    placeholder: "Search keybinds...";
+    placeholder: "Search...";
     placeholder-color: @on-surface-variant;
     padding: 4px 0px;
 }

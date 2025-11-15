@@ -23,6 +23,8 @@ if [ -n "$current" ]; then
     display_list="󰖪 Disconnect from: $current
 $display_list"
 fi
+display_list=" Open network manager TUI
+$display_list"
 
 selected_display=$(echo -e "$display_list" | rofi -dmenu -i -p "Select WiFi Network")
 if [ -z "$selected_display" ]; then
@@ -35,7 +37,9 @@ if [[ "$selected_display" == "󰖪 Disconnect from:"* ]]; then
     else
         notify-send "WiFi Manager" " Failed to disconnect"
     fi
-else
+elif [[ "$selected_display" == " Open network manager TUI" ]]; then
+    kitty --class floating --title 'nmtui' -e nmtui
+else 
     # Remove icon and extract SSID
     ssid=$(echo "$selected_display" | sed 's/^. //' | sed -E 's/\s+\(.*\)\s+[0-9]+%?$//')
     security=$(echo "$wifi_list" | grep -F "^$ssid:" | cut -d: -f2)

@@ -9,6 +9,7 @@ menu=(
     " Icons"
     " Picker"
     " VPN"
+    " Packages"
     " Bluetooth"
     "󰁹 Power"
 )
@@ -62,6 +63,9 @@ if [ -n "$selected" ]; then
             ;;
         " VPN")
             ~/.config/waybar/scripts/tailscale.sh
+            ;;
+        " Packages")
+            ~/.config/waybar/scripts/installer-wrapper.sh
             ;;
         " Bluetooth")
             rofi-bluetooth
