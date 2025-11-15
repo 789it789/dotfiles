@@ -52,6 +52,10 @@ scripts/hyprpm.sh
 mkdir ~/Pictures/Wallpapers
 ```
 
+## Known issues
+
+- `hyprspace` crashes with segfault once a three-finger is done, even if no gestures are defined in hyprland's config
+
 ## Acknowledgements
 
 - My firefox theme is modified from [textfox](https://github.com/adriankarlen/textfox) 
