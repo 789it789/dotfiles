@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 CACHE_DIR="$HOME/.cache/wallpaper-thumbnails"
@@ -17,7 +17,8 @@ generate_thumbnails() {
         # Only generate if thumbnail doesn't exist or is older than original
         if [ ! -f "$thumbnail" ] || [ "$img" -nt "$thumbnail" ]; then
             # Use [0] to explicitly get the first frame for GIFs
-            convert "$img[0]" -resize 200x200^ -gravity center -extent 200x200 "$thumbnail" 2>/dev/null
+            # -n option ensures only one output file is created
+            convert "$img[0]" -resize 200x200^ -gravity center -extent 200x200 +adjoin "$thumbnail" 2>/dev/null
         fi
     done
 }
@@ -68,8 +69,24 @@ build_menu() {
     done
 }
 
-# Show rofi menu with image previews using grid theme
-selected=$(build_menu | rofi -dmenu -i -p "Wallpaper" -show-icons -theme ~/.config/rofi/grid.rasi -theme-str 'element-icon { size: 3em; }' -me-select-entry '' -me-accept-entry MousePrimary)
+# Get list of valid wallpapers
+get_wallpapers() {
+    find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.webp" -o -iname "*.mp4" \) -printf "%f\n"
+}
+
+# Handle random wallpaper selection
+if [ "$1" = "random" ]; then
+    # Select a random wallpaper from the list
+    wallpapers=($(get_wallpapers))
+    if [ ${#wallpapers[@]} -eq 0 ]; then
+        notify-send "Error" "No wallpapers found in $WALLPAPER_DIR"
+        exit 1
+    fi
+    selected="${wallpapers[$RANDOM % ${#wallpapers[@]}]}"
+else
+    # Show rofi menu with image previews using grid theme
+    selected=$(build_menu | rofi -dmenu -i -p "Wallpaper" -show-icons -theme ~/.config/rofi/grid.rasi -theme-str 'element-icon { size: 3em; }' -me-select-entry '' -me-accept-entry MousePrimary)
+fi
 
 # If user selected something, set it as wallpaper
 if [ -n "$selected" ]; then
