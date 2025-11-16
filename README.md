@@ -1,8 +1,10 @@
-# My Archlinux Configs
+# My Hyprland Desktop Configs
 
 This repository contains my Arch Linux Hyprland rice configuration as well as scripts to transform an arch system to a copy of mine.
 
-**Disclaimer** the package list currently assumes NVIDIA cards, since I've only been installing my setup on NVIDIA machines.
+**Disclaimer 1:** the package list currently assumes NVIDIA cards, since I've only been installing my setup on machines with NVIDIA gpu.
+
+**Disclaimer 2:** I do not intend to add a settings app. My settings widget summons TUI-styled windows to for specific settings.
 
 ![thumbnail](images/thumbnail.png)
 
@@ -53,11 +55,13 @@ scripts/apply-configs.sh
 scripts/hyprpm.sh
 mkdir ~/Pictures/Wallpapers
 ```
+You will need **pywalfox** as a browser extension for firefox to be themed properly.
 
 ## Known issues
 
 - `hyprspace` crashes with segfault once a three-finger is done, even if no gestures are defined in hyprland's config
+- GTK and QT apps currently requires a restart to hot-reload themes.
 
 ## Acknowledgements
 
-- My firefox theme is modified from [textfox](https://github.com/adriankarlen/textfox) 
+- My firefox `userChrome.css` is modified from [textfox](https://github.com/adriankarlen/textfox) 

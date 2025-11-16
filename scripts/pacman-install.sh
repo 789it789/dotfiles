@@ -94,6 +94,7 @@ PACKAGES=(
     btop
     cava
     cliphist
+    ripgrep
     duf
     dunst
     fd
@@ -115,6 +116,7 @@ PACKAGES=(
     smartmontools
     unzip
     zip
+    zoxide
     zsh
     yazi
     wget
@@ -226,6 +228,7 @@ AUR_PACKAGES=(
     rofi-bluetooth-git
     wayfreeze-git
     wlogout
+    python-pywalfox
 )
 
 AUR_HELPER=yay # or paru
