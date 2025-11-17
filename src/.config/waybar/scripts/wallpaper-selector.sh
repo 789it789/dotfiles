@@ -121,7 +121,7 @@ if [ -n "$selected" ]; then
             
             # Reset notification style and send notification
             killall dunst; dunst &
-            notify-send "Applying Animated Wallpaper & Theme" "$selected" -i "$thumbnail_path"
+            notify-send -a "Wallpaper" "Applying Animated Wallpaper & Theme" "$selected" -i "$thumbnail_path"
 
             # Set animated wallpaper using gslapper
             gslapper -o "loop" "*" "$wallpaper_path" &
@@ -140,9 +140,9 @@ if [ -n "$selected" ]; then
             # Reset notification style and send notification
             sleep 0.5
             killall dunst; dunst &
-            notify-send "Applying Wallpaper & Theme" "$selected" -i "$wallpaper_path"
+            notify-send -a "Wallpaper" "Applying Wallpaper & Theme" "$selected" -i "$wallpaper_path"
         fi
     else
-        notify-send "Error" "Wallpaper file not found: $wallpaper_path"
+        notify-send -a "Wallpaper" "Error" "Wallpaper file not found: $wallpaper_path"
     fi
 fi

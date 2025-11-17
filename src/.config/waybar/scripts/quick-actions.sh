@@ -41,7 +41,7 @@ if [ -n "$selected" ]; then
             kitty --class floating --title 'Clipboard Manager' -e clipse
             ;;
         " Code")
-            kitty --class floating -e sh -c 'path=$(fd -H -E .git -t f -t d | fzf --prompt="Open in VS Code: " --height=100% --reverse --preview="bat --color=always --style=numbers {}" --preview-window=right:50%:wrap) && [ -n "$path" ] && code "$path"'
+            ~/.config/waybar/scripts/code-launcher.sh
             ;;
         "󰞅 Emojis")
             rofi -show emoji -theme ~/.config/rofi/config.rasi
@@ -51,15 +51,11 @@ if [ -n "$selected" ]; then
             if [ -n "$selected_icon" ]; then
                 icon=$(echo "$selected_icon" | awk '{print $1}')
                 echo -n "$icon" | wl-copy
-                notify-send 'Icon Picker' "Copied: $icon"
+                notify-send 'Icon Picker' 'Icon Picker' "Copied: $icon"
             fi
             ;;
         " Picker")
-            # Use hyprpicker
-            color=$(hyprpicker -a -f hex)
-            if [ $? -eq 0 ]; then
-                notify-send 'Color Picker' "Copied: $color"
-            fi
+            ~/.config/waybar/scripts/color-picker.sh
             ;;
         " VPN")
             ~/.config/waybar/scripts/tailscale.sh
