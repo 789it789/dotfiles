@@ -38,7 +38,7 @@ if [ -n "$selected" ]; then
             fi
             ;;
         "󰅇 Clipboard")
-            kitty --class floating --title 'Clipboard Manager' -e clipse
+            clipse-gui
             ;;
         " Code")
             ~/.config/waybar/scripts/code-launcher.sh
