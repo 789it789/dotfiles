@@ -8,9 +8,9 @@
     min-height: 0;
 }
 
-#workspaces button.empty {
+/* #workspaces button.empty {
     color: #E08290;
-}
+} */
 
 /* Fix icon alignment - add extra left padding to center icons */
 #custom-launcher {

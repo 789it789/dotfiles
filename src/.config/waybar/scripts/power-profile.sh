@@ -32,15 +32,15 @@ if [ -n "$selected" ]; then
     case "$selected" in
         "󰓅 Performance"*|"󰓅 Performance (Active)")
             powerprofilesctl set performance
-            notify-send "Power Profile" "Switched to Performance mode"
+            notify-send -a "System" "Power Profile" "Switched to Performance mode" -i preferences-desktop
             ;;
         "󰾅 Balanced"*|"󰾅 Balanced (Active)")
             powerprofilesctl set balanced
-            notify-send "Power Profile" "Switched to Balanced mode"
+            notify-send -a "System" "Power Profile" "Switched to Balanced mode" -i preferences-desktop
             ;;
         "󰾆 Power Saver"*|"󰾆 Power Saver (Active)")
             powerprofilesctl set power-saver
-            notify-send "Power Profile" "Switched to Power Saver mode"
+            notify-send -a "System" "Power Profile" "Switched to Power Saver mode" -i preferences-desktop
             ;;
     esac
 fi

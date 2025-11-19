@@ -96,19 +96,31 @@ if [ -n "$selected_label" ]; then
 
     if [ "$selected_ip" = "DISABLE" ]; then
         # Disconnect from exit node
+        # Get the flag for the currently connected country
+        disconnect_flag=$(sed -n "1p" "$TEMP_MENU")
         tailscale set --exit-node="" 2>&1 > /dev/null
         if [ $? -eq 0 ]; then
-            notify-send "Tailscale VPN" "Disconnected from VPN"
+            if [ -n "$disconnect_flag" ] && [ -f "$disconnect_flag" ]; then
+                notify-send -a "Tailscale VPN" -i "$disconnect_flag" "Tailscale VPN" "Disconnected from VPN"
+            else
+                notify-send -a "Tailscale VPN" "Tailscale VPN" "Disconnected from VPN"
+            fi
         else
-            notify-send "Tailscale VPN" "Failed to disconnect from VPN"
+            notify-send -a "Tailscale VPN" "Tailscale VPN" "Failed to disconnect from VPN"
         fi
     elif [ -n "$selected_ip" ]; then
         # Connect to selected exit node
         tailscale set --exit-node="$selected_ip" 2>&1 --exit-node-allow-lan-access=true > /dev/null
         if [ $? -eq 0 ]; then
-            notify-send "Tailscale VPN" "Connected to: $selected_text"
+            # Get the flag for the selected country
+            selected_flag=$(sed -n "$((line_num - 1))p" "$TEMP_MENU")
+            if [ -n "$selected_flag" ] && [ -f "$selected_flag" ]; then
+                notify-send -a "Tailscale VPN" -i "$selected_flag" "Tailscale VPN" "Connected to: $selected_text"
+            else
+                notify-send -a "Tailscale VPN" "Tailscale VPN" "Connected to: $selected_text"
+            fi
         else
-            notify-send "Tailscale VPN" "Failed to connect to exit node"
+            notify-send -a "Tailscale VPN" "Tailscale VPN" "Failed to connect to exit node"
         fi
     fi
 fi

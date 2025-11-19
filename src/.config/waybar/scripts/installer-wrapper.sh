@@ -90,7 +90,7 @@ if [ -n "$selected" ]; then
         " Clean Unused Packages")
             killall rofi
             sleep 0.05
-            kitty --class floating -e sh -c 'echo -e "\e[34m$(figlet -f ansi-shadow \"Clean\")\e[0m"; sudo pacman -Rns $(pacman -Qdtq); echo "Cleaning complete, press enter to continue"; read -r; exit 0'
+            kitty --class floating -e sh -c 'echo -e "\e[34m$(figlet -f ansi-shadow \"Clean\")\e[0m"; sudo pacman -Rns $(pacman -Qdtq); echo -e "\e[34m$(figlet -f ansi-shadow \"Done\")\e[0m"; echo "Cleaning complete, press enter to continue"; read -r; exit 0'
             ;;
         "󰚰 System Update")
             killall rofi
