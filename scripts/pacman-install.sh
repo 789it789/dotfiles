@@ -46,7 +46,7 @@ select_aur_helper() {
 }
 
 echo -e "${BLUE}╔════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║   Arch Linux Package Installation Script  ║${NC}"
+echo -e "${BLUE}║         Package Installation Script        ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -119,11 +119,6 @@ SYSTEM_PACKAGES=(
     # Kernel and base system
     base
     base-devel
-    linux
-    linux-firmware
-    linux-headers
-    dkms
-    amd-ucode
 
     # Package management
     pacman-contrib
@@ -450,5 +445,5 @@ fi
 
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║        Installation Complete!              ║${NC}"
+echo -e "${GREEN}║           Installation Complete!           ║${NC}"
 echo -e "${GREEN}╚════════════════════════════════════════════╝${NC}"
