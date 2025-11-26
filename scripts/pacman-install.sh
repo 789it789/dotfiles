@@ -171,7 +171,6 @@ APPLICATION_PACKAGES=(
     firefox
 
     # Development
-    code
     git
     npm
     nodejs-lts-jod
@@ -367,6 +366,7 @@ AUR_RICE_PACKAGES=(
 
 AUR_APP_PACKAGES=(
     # Applications
+    vscodium
     vencord
     vesktop
     feishin
