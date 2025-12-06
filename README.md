@@ -22,17 +22,19 @@ https://github.com/user-attachments/assets/6e62c5ae-b80c-4d13-82e5-a0f5d0adbfe2
 
 ## Features
 **Press Super+K to access the dynamically generated cheat sheet!**
-- Functional top bar (waybar) with the following components
+- **Waybar**: top bar with the following components
     - system monitor
     - media control
     - workspaces
     - audio/wifi/bluetooth/power
     - other fun stuff inside of "quick actions"
-- Wallpaper-generated material-you theme swapping (matugen) + wallpaper selector
-- Animated wallpapers! (allows .mp4)
-- Fully themed applications (firefox/vscode/gtk/qtct)
-- Application launchers
-- Workspace overview (alt tab)
+- **Matugen**: controls the global theme based on the selected wallpaper
+- **GSlapper**: a memory-efficient implementation of mpvpaper for animated wallpapers
+- **Teriminal apps**: like yazi and neovim are themed based on the Ansi colors
+- **GTK/QT**: applications are fully themed
+- **Other apps**: like firefox and vscodium are themed as well
+- **Workspace layout**: each workspace can be set to specific layout on-the-fly. **Hyprscrolling** supports a niri-like scrolling layout
+- **Workspace overview**: alt tab-like overview with **hyprexpo**
 
 ## Installation
 
@@ -40,7 +42,7 @@ See more at ![my installation documentation](INSTALLATION.MD)
 
 ## Known issues
 
-- `hyprspace` crashes with segfault once a three-finger is done, even if no gestures are defined in hyprland's config
+- Hyprscrolling crashes when scrolled out-of-bounds [(issue thread)](https://github.com/zakk4223/hyprWorkspaceLayouts/issues/37)
 - GTK and QT apps currently requires a restart to hot-reload themes.
 
 ## Acknowledgements

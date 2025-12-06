@@ -30,10 +30,13 @@ scripts/hyprpm.sh
 ```
 This will apply the configuration files to the respective directories. Make sure to look through the file and configure some variable/locations accordingly. You might need to log out or restart for all changes to apply.
 
+### Potential manual interventions
+- Keyrings: some keyrings might not be valid and would require you to add them manually
+
 ### Post Installation
 - Press MainMod+K to view the keybinds! Feel free to edit them at `~/.config/hypr/components/binds.conf`
 - Start a terminal session. You'll likely see oh-my-zsh installing the plugins at the first launch.
-- **Firefox** you'll need to enable userchrome css via `toolkit.legacyUserProfileCustomizations.stylesheets` in its config.
+- **Firefox** you'll need to enable userchrome css via `toolkit.legacyUserProfileCustomizations.stylesheets` in its config. Make sure the profile name matches your instance
 - **Vencord** enable the CSS via its settings.
 - **Fcitx** install your languages via fcitx and edit `~/.config/waybar/scripts/ime-status.sh` and `~/.config/waybar/scripts/ime-switch.sh` accordingly. My configs come with only the languages I speak.
 - **Cursor** edit `/usr/share/icons/default/index.theme` to inherit your cursor theme of choice (BreezeX-Black in my case). This, combined with hyprland's settings, should be enough to set the cursor for *most* apps. Electron apps are particularly stubborn, as it falls back to Adwaita even with new defaults. The most surefire solution, if you don't wish to use Adwaita, is to simply delete `/usr/share/icons/Adwaita`. 
