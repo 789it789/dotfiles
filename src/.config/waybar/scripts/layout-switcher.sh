@@ -1,4 +1,6 @@
+
 #!/bin/bash
+killall rofi
 icons_dir="$HOME/.config/waybar/icons"
 build_menu() {
     echo -en "dwindle\0icon\x1f$icons_dir/dwindle.svg\n"
