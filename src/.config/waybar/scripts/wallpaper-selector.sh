@@ -88,7 +88,7 @@ if [ -n "$selected" ]; then
             sleep 0.5 
             killall dunst; dunst &
             notify-send -a "Wallpaper" "Applying Animated Wallpaper & Theme" "$selected" -i "$thumbnail_path"
-            gslapper -o "loop" "*" "$wallpaper_path" & # animated wallpaper
+            gslapper -o "loop full" "*" "$wallpaper_path" & # animated wallpaper
         else
             # Static wallpaper, [0] for gifs
             convert "$wallpaper_path[0]" +adjoin "$HOME/.cache/last_wallpaper_static.jpg"

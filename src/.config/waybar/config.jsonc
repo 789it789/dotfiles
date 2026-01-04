@@ -31,6 +31,13 @@
         "custom/power"
     ],
 
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "format": "{}",
+        "return-type": "",
+        "on-click": "pkill cava",
+        "restart-interval": 0.1
+    },
     // Left modules
     "custom/launcher": {
         "format": "",
@@ -145,14 +152,28 @@
     "clock": {
         "format": "{:%Y/%m/%d  %H:%M:%S}",
         "on-click": "kitty --class floating --title 'Calendar' -e calcurse",
-        "tooltip-format": "<big>Click to launch </big>\n<tt>{calendar}</tt>",
+        "tooltip-format": "<b><span color='#ffae12'><big>Click to launch </big></span></b>\n\n<tt>{calendar}</tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
         "interval": 1
     },
 
     "custom/weather": {
         "exec": "~/.config/waybar/scripts/weather.sh",
         "return-type": "json",
-        "interval": 120,
+        "interval": 10,
         "format": "{}",
         "on-click": "~/.config/waybar/scripts/weather.sh toggle",
         "signal": 8

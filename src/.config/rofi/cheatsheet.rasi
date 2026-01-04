@@ -131,3 +131,7 @@ textbox {
     text-color: @on-surface-variant;
     padding: 4px;
 }
+
+configuration {
+    click-to-exit: true;
+}

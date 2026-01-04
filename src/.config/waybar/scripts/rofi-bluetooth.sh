@@ -255,15 +255,18 @@ show_menu() {
             discoverable=" Discoverable: OFF"
         fi
 
-        options="$devices\n$power\n$scan\n$pairable\n$discoverable"
+        options="Open Bluetooth TUI\n$devices\n$power\n$scan\n$pairable\n$discoverable"
     else
         power="⏻ Power: OFF"
         options="$power"
     fi
 
     chosen="$(echo -e "$options" | rofi -dmenu -i -p "Bluetooth")"
-
+    
     case "$chosen" in
+        "Open Bluetooth TUI")
+            kitty --class floating --title 'bluetui' -e bluetui
+            ;;
         "$power")
             toggle_power
             ;;

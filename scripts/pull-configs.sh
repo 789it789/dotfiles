@@ -11,9 +11,11 @@ RICE_CONFIGS=(
     "hypr"
     "waybar"
     "swaync"
+    "swayosd"
     "rofi"
     "wlogout"
     "nwg-dock-hyprland"
+    "systemd"
 
     # Theming
     "kdeglobals"

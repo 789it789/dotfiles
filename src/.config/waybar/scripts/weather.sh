@@ -22,8 +22,6 @@ else
     echo "f" > "$STATE_FILE"
 fi
 
-i
-
 IFS=',' read -r latitude longitude <<< "$(cat "$LOCATION_FILE")"
 
 # Determine temperature unit for API
@@ -70,7 +68,6 @@ else
 fi
 
 # Map WMO weather codes to icons and descriptions
-# Map WMO weather codes to icons and descriptions
 case "$weathercode" in
     0) icon="󰖙"; condition="Clear" ;;
     1|2) icon="󰖕"; condition="Partly Cloudy" ;;
@@ -97,14 +94,16 @@ else
     feels_display="${feels_like}°C"
 fi
 
-tooltip="lat: $latitude\nlon: $longitude\n\n"
-tooltip+=" Temp: ${temp_display}\n"
-tooltip+=" Feels like: ${feels_display}\n"
-tooltip+="$icon Weather: $condition\n"
-tooltip+="󰖌 Humidity: ${humidity}${humidity_unit}\n"
-tooltip+=" Wind: ${windspeed} ${windspeed_unit}\n"
-tooltip+=" Precipitation: ${precipitation} ${precipitation_unit}\n"
-tooltip+="󱤊 Pressure: ${pressure} ${pressure_unit}\n"
-tooltip+="\n󰳽 Click to toggle °C/°F"
+# Build colorful tooltip
+tooltip="<span color='#ffead3'><b>Weather Information</b></span>\n"
+tooltip+="<span color='#ffae12'>lat: $latitude, lon: $longitude</span>\n\n"
+tooltip+="<span color='#ff6699'><b> Temperature:</b></span> <span color='#ecc6d9'>${temp_display}</span>\n"
+tooltip+="<span color='#ffcc66'><b> Feels like:</b></span> <span color='#ecc6d9'>${feels_display}</span>\n"
+tooltip+="<span color='#ffcc66'><b>$icon Condition:</b></span> <span color='#ecc6d9'>$condition</span>\n"
+tooltip+="<span color='#99ffdd'><b>󰖌 Humidity:</b></span> <span color='#ecc6d9'>${humidity}${humidity_unit}</span>\n"
+tooltip+="<span color='#99ffdd'><b> Wind:</b></span> <span color='#ecc6d9'>${windspeed} ${windspeed_unit}</span>\n"
+tooltip+="<span color='#82bcdd'><b> Precipitation:</b></span> <span color='#ecc6d9'>${precipitation} ${precipitation_unit}</span>\n"
+tooltip+="<span color='#82bcdd'><b>󱤊 Pressure:</b></span> <span color='#ecc6d9'>${pressure} ${pressure_unit}</span>\n"
+tooltip+="\n<span color='#ffead3'><i>󰳽 Click to toggle °C/°F</i></span>"
 
-echo "{\"text\":\"$icon $temp_display\",\"tooltip\":\"<big>Weather</big>\n$tooltip\"}"
+echo "{\"text\":\"$icon $temp_display\",\"tooltip\":\"$tooltip\"}"

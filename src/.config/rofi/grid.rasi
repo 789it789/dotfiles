@@ -47,14 +47,14 @@ entry {
 
 listview {
     background-color: transparent;
-    columns: 3;
-    lines: 4;
+    columns: 4;
+    lines: 3;
     spacing: 8px;
     scrollbar: false;
     fixed-columns: true;
-    fixed-height: false;
+    fixed-height: true;
     border: 0;
-    flow: horizontal;
+    flow: vertical;
 }
 
 element {

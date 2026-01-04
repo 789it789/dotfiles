@@ -101,6 +101,11 @@ input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
 post_hook = 'swaync-client -rs'
 
+[templates.swayosd]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/swayosd/colors.css'
+post_hook = 'killall swayosd-server; swayosd-server &'
+
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi-theme.toml'
 output_path = '~/.config/yazi/theme.toml'
@@ -114,3 +119,7 @@ output_path = '~/.config/vesktop/themes/system24.theme.css'
 input_path = '~/.config/matugen/templates/neovim-theme.lua'
 output_path = '~/.config/nvim/matugen.lua'
 post_hook = 'pkill -SIGUSR1 nvim'
+
+[templates.quickshell]
+input_path = '~/.config/matugen/templates/quickshell-colors.qml'
+output_path = '~/.config/quickshell/chromatic-shell/theme/Colors.qml'

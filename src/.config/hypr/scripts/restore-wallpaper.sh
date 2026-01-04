@@ -17,7 +17,7 @@ if [ -f "$LAST_WALLPAPER" ]; then
         if [ "${extension,,}" = "mp4" ]; then
             # Handle MP4 animated wallpaper with gslapper
             killall gslapper 2>/dev/null
-            gslapper -o "loop" "*" "$wallpaper_path" &
+            gslapper -o "loop full" "*" "$wallpaper_path" &
         else
             # Handle static image wallpaper
             # You can use swww for static images or gslapper for both
