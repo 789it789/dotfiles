@@ -1,6 +1,6 @@
 [
     {
-        "output": "HDMI-A-1",
+        "output": "null",
         "layer": "top",
         "position": "top",
         "height": 20,
@@ -74,7 +74,7 @@
         }
     },
     {
-        "output": "HDMI-A-2",
+        "output": "eDP-1",
         "layer": "top",
         "position": "top",
         "height": 20,
@@ -82,24 +82,21 @@
         "reload_style_on_change": true,
 
         "modules-left": [
-            "custom/launcher",
             "cpu",
             "custom/memory-gpu",
             "network",
             "temperature",
             "custom/disk",
-            "custom/wallpaper"
+	    "mpris"
         ],
 
         "modules-center": [
-            "mpris",
             "hyprland/workspaces",
             "custom/notification"
         ],
 
         "modules-right": [
-            "custom/quick-actions",
-            "custom/ime",
+            "custom/cava",
             "clock",
             "custom/weather",
             "pulseaudio",
@@ -112,13 +109,6 @@
             "format": "",
             "tooltip-format": "Application launcher",
             "on-click": "rofi -show drun -modi drun -theme ~/.config/rofi/grid.rasi"
-        },
-
-        "custom/wallpaper": {
-            "exec": "ls ~/Pictures/Wallpapers | wc -l",
-            "format": "",
-            "tooltip-format": "Pick from {} wallpapers!",
-            "on-click": "~/.config/waybar/scripts/wallpaper-selector.sh"
         },
 
         "cpu": {
@@ -136,7 +126,7 @@
         },
 
         "network": {
-            "format": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+            "format": "󰇚 {bandwidthDownBits}",
             "format-disconnected": "󰛳 Disconnected",
             "tooltip-format": "Down: {bandwidthDownBits} Up: {bandwidthUpBits}",
             "interval": 2,
@@ -161,9 +151,14 @@
             "on-click": "kitty --class floating --title floating -e watch duf"
         },
 
+          "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/cava.sh"
+        },
         // Center modules
         "mpris": {
-            "format": "{player_icon}",
+            "max-length": 80,
+            "format": "{artist} - {title} [{position}/{length}]",
             "format-paused": "{status_icon}",
             "player-icons": {
                 "default": "",
@@ -173,7 +168,6 @@
                 "paused": ""
             },
             "interval":1,
-            "tooltip-format": " {player}\n {artist}\n {album} {title}\n [{position}/{length}]"
         },
         
         "hyprland/workspaces": {
@@ -209,15 +203,6 @@
         },
 
         // Right modules
-        "custom/ime": {
-            "exec": "~/.config/waybar/scripts/ime-status.sh",
-            "return-type": "json",
-            "interval": 1,
-            "format": "󰇧 {}",
-            "on-click": "~/.config/waybar/scripts/ime-switch.sh",
-            "tooltip": true
-        },
-
         "clock": {
             "format": "{:%Y/%m/%d  %H:%M:%S}",
             "on-click": "kitty --class floating --title 'Calendar' -e calcurse",
