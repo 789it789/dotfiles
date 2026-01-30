@@ -25,8 +25,8 @@ window {
     background-color: @surface-container;
     border: 2px solid;
     border-color: @primary;
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 12px;
     width: 500px;
     location: north east;
     anchor: north east;
@@ -37,7 +37,7 @@ window {
 mainbox {
     background-color: transparent;
     children: [ inputbar, listview ];
-    spacing: 16px;
+    spacing: 12px;
 }
 
 inputbar {
@@ -50,7 +50,7 @@ inputbar {
 
 prompt {
     text-color: @primary;
-    font: "JetBrainsMono Nerd Font Bold 13";
+    font: "ComicCode 10";
 }
 
 entry {

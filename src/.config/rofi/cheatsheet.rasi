@@ -1,7 +1,7 @@
 @import "colors.rasi"
 
 * {
-    font: "JetBrainsMono Nerd Font 13";
+    font: "ComicCode 6";
     background-color: transparent;
     text-color: @on-surface;
 }
@@ -34,7 +34,7 @@ inputbar {
 prompt {
     background-color: transparent;
     text-color: @primary;
-    font: "JetBrainsMono Nerd Font Bold 13";
+    font: "ComicCode 9";
     padding: 4px 0px;
 }
 
@@ -59,11 +59,11 @@ listview {
 }
 
 scrollbar {
-    width: 6px;
+    width: 0px;
     background-color: @surface-container;
     handle-color: @primary-container;
-    handle-width: 6px;
-    border-radius: 3px;
+    handle-width: 0px;
+    border-radius: 0px;
     padding: 0px;
     margin: 0px 4px;
 }
